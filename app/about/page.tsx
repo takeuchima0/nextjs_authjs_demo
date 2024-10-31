@@ -1,11 +1,11 @@
 import React from 'react';
 
 const AboutPage = () => {
-  return (
-    <div>
-      このページはAboutページです。
-    </div>
-  );
+  // const aaa = 123; // インデントが2に変わった
+  // const bbb = 'aaa'; // シングルクォーテーションに変わった
+  // const ccc = 'hoge'; // 文末のセミコロンが指定された
+
+  return <div>このページはAboutページです。</div>;
 };
 
 export default AboutPage;
