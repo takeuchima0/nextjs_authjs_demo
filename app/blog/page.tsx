@@ -3,9 +3,9 @@
 // import BlogCard from '@/features/blog/components/BlogCard/BlogCard';
 
 // 名前空間import/exportで別途定義したindex.tsを参照
-import * as Blog from "@/features/blog/components/index";
+import * as Blog from '@/features/blog/components/index';
 
-import React from "react";
+import React from 'react';
 
 const BlogPage = () => {
   return (
