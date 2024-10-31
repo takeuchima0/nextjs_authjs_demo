@@ -1,3 +1,28 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "rules": {
+    // "no-console": ["warn"],       // console.logが定義されている場合は警告を出す
+    // "indent": ["warn", 2],        // インデント数が2以外の場合は警告を出す
+    // "quotes": ["warn", "double"], // シングルクォーテーションを使用している場合は警告を出す
+    // "semi": ["warn", "always"],   // 文末にセミコロンを定義していない場合は警告を出す
+    // "camelcase": ["warn"]         // 変数定義時にキャメルケースで定義されていない場合は警告を出す
+
+    // 基本的にはairbnbのルールに準拠しているが、除外したい場合配下のように定義
+    "no-var": ["off"] // varの宣言エラーを無視する
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "airbnb-typescript"
+  ]
 }
