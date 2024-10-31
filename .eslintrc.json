@@ -11,7 +11,7 @@
   "rules": {
     "no-console": ["warn"],      // console.logが定義されている場合は警告を出す
     "indent": ["warn", 2],       // インデント数が2以外の場合は警告を出す
-    "quotes": ["warn", "single"] // ダブルクォーテーションを使用している場合は警告を出す
+    "quotes": ["warn", "double"] // シングルクォーテーションを使用している場合は警告を出す
   },
   "extends": [
     "next/core-web-vitals",
