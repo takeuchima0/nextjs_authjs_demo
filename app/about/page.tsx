@@ -9,6 +9,10 @@ const AboutPage = () => {
 
   const semiColonWaringCheck = "文末にセミコロンを設定しない状態で警告が出ることを確認しています。"
 
+  var usedVariables = "varで変数宣言しています。";
+
+  const snake_case = "スネークケースで変数定義しています";
+
   return (
     <div>
       このページはAboutページです。
@@ -16,6 +20,8 @@ const AboutPage = () => {
       <p>{singleQuotesWaringCheck}</p>
       <p>{doubleQuotesWaringCheck}</p>
       <p>{semiColonWaringCheck}</p>
+      <p>{usedVariables}</p>
+      <p>{snake_case}</p>
     </div>
   );
 };
