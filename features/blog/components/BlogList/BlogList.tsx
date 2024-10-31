@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const BlogList = () => {
   console.log("[INFO] BlogList");
@@ -6,7 +6,7 @@ const BlogList = () => {
     <div>
       <p>2. features/blog/components配下で定義したBlogListのコンポーネントです。</p>
     </div>
-  )
-}
+  );
+};
 
-export default BlogList
+export default BlogList;
