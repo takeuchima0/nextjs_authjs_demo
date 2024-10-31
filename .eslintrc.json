@@ -9,7 +9,8 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-console": ["warn"]
+    "no-console": ["warn"], // console.logが定義されている場合は警告を出す
+    "indent": ["warn", 2]   // インデント数が2以外の場合は警告を出す
   },
   "extends": [
     "next/core-web-vitals",
