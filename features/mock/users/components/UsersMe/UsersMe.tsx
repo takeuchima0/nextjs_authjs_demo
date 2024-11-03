@@ -1,11 +1,12 @@
 import React from 'react';
 import { MockUser } from '@/app/types/users';
 
-const UsersMe: React.FC<MockUser> = ({ id, name, age, isLogin }) => {
+const MockUsersMe: React.FC<MockUser> = ({ id, name, age, isLogin }) => {
   return (
     <div className="">
       <p>
-        ./features/mock/components/ 配下で定義したUsersMeのコンポーネントです。
+        ./features/mock/components/
+        配下で定義したMockUsersMeのコンポーネントです。
       </p>
       <p>
         <strong>ID:</strong> {id}
@@ -23,4 +24,4 @@ const UsersMe: React.FC<MockUser> = ({ id, name, age, isLogin }) => {
   );
 };
 
-export default UsersMe;
+export default MockUsersMe;
