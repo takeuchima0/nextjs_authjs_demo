@@ -1,4 +1,4 @@
-import * as MockUserComponents from '@/features/mock/components/index';
+import * as MockUserComponents from '@/features/mock/users/components/index';
 import type { MockUser } from '@/app/types/users';
 
 import React from 'react';
