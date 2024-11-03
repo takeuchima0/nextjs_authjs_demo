@@ -1,6 +1,7 @@
+import './globals.css';
 import type { Metadata } from 'next';
 import Header from './components/layouts/header/Header';
-import './globals.css';
+import Footer from './components/layouts/footer/Footer';
 
 export const metadata: Metadata = {
   title: 'Next.js Sample Layout',
@@ -14,9 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="antialiased">
+      <body className="antialiased flex flex-col min-h-screen">
         <Header />
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
