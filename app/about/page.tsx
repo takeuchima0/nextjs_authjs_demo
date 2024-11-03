@@ -5,6 +5,8 @@ const AboutPage = () => {
   // const bbb = 'aaa'; // シングルクォーテーションに変わった
   // const ccc = 'hoge'; // 文末のセミコロンが指定された
 
+  // test
+
   return <div>このページはAboutページです。</div>;
 };
 
