@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Header from './components/layouts/header/Header';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -11,9 +12,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log('layout.tsxが呼ばれた');
+
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body className="antialiased">
+        <Header />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
