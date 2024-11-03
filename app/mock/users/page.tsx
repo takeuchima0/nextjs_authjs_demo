@@ -1,21 +1,22 @@
-import * as MockUser from '@/features/mock/components/index';
+import * as MockUserComponents from '@/features/mock/components/index';
+import type { MockUser } from '@/app/types/users';
 
 import React from 'react';
 
 const MockUserPage = () => {
   // ここでAPIリクエストを行い必要なデータを取得する。
-  const userData = {
-    id: 1,
-    name: 'John Doe',
-    age: 25,
+  const mockUserProps: MockUser = {
+    id: 10011011,
+    name: 'Hal Ulala',
+    age: 20,
     isLogin: true,
   };
 
   return (
     <div>
       {/* 取得したデータはpropsとして1つにまとめ、feature/components側に渡す。 */}
-      <MockUser.UsersMe {...userData} />
-      <MockUser.UserList />
+      <MockUserComponents.UsersMe {...mockUserProps} />
+      <MockUserComponents.UserList />
     </div>
   );
 };
