@@ -10,23 +10,24 @@
 - 各機能別でindex.tsxを定義し、componentを1つのエイリアスにまとめて名前付きexportを行う。
   ```tsx
   // index.tsx で名前付きexportを定義
-  import UserByID from './UserByID/UserByID';
+  import UsersMe from './UsersMe/UsersMe';
   import UserList from './UserList/UserList';
 
-  export { UserByID, UserList };
+  export { UsersMe, UserList };
+
   ```
   ```tsx
   // page.tsx 側で呼び出す際には以下のように定義
-  import * as MockUser from '@/features/mock/components/index';
   import * as MockUser from '@/features/mock/components/index';
 
   import React from 'react';
 
   const MockUserPage = () => {
+    // ここでAPIリクエストを行い必要なデータを取得する。
     return (
       <div>
-        <MockUser.UserByID />
-        <MockUser.UserList />
+        // 取得したデータはpropsとして1つにまとめ、feature/components側に渡す。
+        <MockUser.UsersMe props={data} />
       </div>
     );
   };
