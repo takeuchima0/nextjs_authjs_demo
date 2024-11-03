@@ -1,13 +1,7 @@
 import React from 'react';
+import { MockUser } from '@/app/types/users';
 
-type UserProps = {
-  id: number;
-  name: string;
-  age: number;
-  isLogin: boolean;
-};
-
-const UsersMe: React.FC<UserProps> = ({ id, name, age, isLogin }) => {
+const UsersMe: React.FC<MockUser> = ({ id, name, age, isLogin }) => {
   return (
     <div className="">
       <p>
