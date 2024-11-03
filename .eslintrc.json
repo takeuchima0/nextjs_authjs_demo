@@ -8,7 +8,10 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "project": "./tsconfig.json",
-    "tsconfigRootDir": "./"
+    "tsconfigRootDir": "./",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     // "no-console": ["warn"],       // console.logが定義されている場合は警告を出す
