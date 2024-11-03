@@ -12,8 +12,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log('layout.tsxが呼ばれた');
-
   return (
     <html lang="ja">
       <body className="antialiased">
