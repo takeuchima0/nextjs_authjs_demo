@@ -11,19 +11,18 @@ const MockAdminUserPage = async () => {
 
   console.log('[info] api-key:', headers['API-Key']);
   console.log('[info] auth-token:', headers.Authorization);
+  console.log(`[info] ${process.env.NEXT_PUBLIC_V1_API_BASE_URL}/users`);
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/users`,
+    `${process.env.NEXT_PUBLIC_V1_API_BASE_URL}/users`,
     {
       method: 'GET',
       headers: headers,
     },
   );
 
-  console.log('[info] response status:', response.status);
-
   if (response.status !== 200) {
-    return <div>ユーザ情報の取得に失敗しました。</div>;
+    throw new Error(`HTTP error Status: ${response.status}`);
   }
 
   const userList: MockUser[] = await response.json();
