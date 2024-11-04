@@ -1,4 +1,5 @@
 import { API_HOST, API_REQUEST_OPTIONS } from '@/app/constants/api';
+import { HTTPError } from '@/app/lib/api/error';
 
 /**
  * シンプルなGETリクエストを送信する関数
@@ -15,7 +16,10 @@ export const getRequest = async <T>(path: string): Promise<T> => {
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error Status: ${response.status}`);
+    throw new HTTPError(
+      response.status,
+      `HTTP error Status: ${response.status}`,
+    );
   }
 
   return response.json() as Promise<T>;
