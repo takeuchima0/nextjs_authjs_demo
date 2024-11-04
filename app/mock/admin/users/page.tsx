@@ -2,7 +2,23 @@ import * as MockUserComponents from '@/features/mock/users/components/index';
 import type { MockUser } from '@/app/types/users';
 
 const MockAdminUserPage = async () => {
-  const response = await fetch('http://localhost:3000/api/v1/users');
+  const headers = {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'API-Key': process.env.API_KEY || '',
+    Authorization: `Bearer ${process.env.AUTHORIZATION_TOKEN || ''}`,
+  };
+
+  console.log('[info] api-key:', headers['API-Key']);
+  console.log('[info] auth-token:', headers.Authorization);
+
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/users`,
+    {
+      method: 'GET',
+      headers: headers,
+    },
+  );
 
   console.log('[info] response status:', response.status);
 
