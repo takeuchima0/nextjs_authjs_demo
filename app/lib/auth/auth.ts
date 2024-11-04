@@ -30,7 +30,7 @@ const authOptions: NextAuthOptions = {
         params: { scope: 'user:email' },
       },
       httpOptions: {
-        timeout: 10000,
+        timeout: 20000, // NOTE: Github側でタイムアウトになることが多いので長めに設定
       },
     }),
     GoogleProvider({
@@ -41,9 +41,9 @@ const authOptions: NextAuthOptions = {
 
   // 4. session option
   // NOTE: https://next-auth.js.org/getting-started/upgrade-v4#session-strategy
-  // session: {
-  //   strategy: 'jwt',
-  // },
+  session: {
+    strategy: 'jwt',
+  },
 
   // 5. callback option
   // NOTE: https://next-auth.js.org/configuration/callbacks
