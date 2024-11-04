@@ -49,7 +49,10 @@ export const getRequestWithPathParameters = async <T>(
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error Status: ${response.status}`);
+    throw new HTTPError(
+      response.status,
+      `HTTP error Status: ${response.status}`,
+    );
   }
 
   return response.json() as Promise<T>;
@@ -89,7 +92,10 @@ export const getRequestWithQueryParameters = async <T>(
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error Status: ${response.status}`);
+    throw new HTTPError(
+      response.status,
+      `HTTP error Status: ${response.status}`,
+    );
   }
 
   return response.json() as Promise<T>;
