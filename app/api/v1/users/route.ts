@@ -1,4 +1,5 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { API_KEY } from '@/app/constants/api';
 import { MockUser } from '@/app/types/users';
 
 const mockUserListResponse: MockUser[] = [
@@ -9,6 +10,16 @@ const mockUserListResponse: MockUser[] = [
 ];
 
 // GET api/v1/users
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authToken = request.headers.get('Authorization');
+  console.log('[info] Authorization:', authToken);
+
+  if (authToken !== `Bearer ${API_KEY}`) {
+    return NextResponse.json(
+      { error: 'Missing Authorization token' },
+      { status: 401 },
+    );
+  }
+
   return NextResponse.json(mockUserListResponse);
 }
