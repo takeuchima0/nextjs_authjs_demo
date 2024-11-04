@@ -34,3 +34,12 @@
 
   export default MockUserPage;
   ```
+
+
+### このあたりどうしようかと考えているところ
+- 1. SSRでデータ取得する（page.tsx）
+- 2. APIで取得したデータをpropsに詰め込み、page.tsx -> feature/components/[feature].tsxに渡す
+- 3. feature/componentsでデータの状態管理を行い描画する ※useState, useEffect etc...
+
+3の状態で例えばフォームアクションによるPOST/PUT/DELETE のリクエストを行う場合、どのような構成になるか。<br>
+feature/components 配下ではあくまでもデータ取得等は行わないとしているので、postリクエスト等は必要に応じて実装するのが良い?<br>
