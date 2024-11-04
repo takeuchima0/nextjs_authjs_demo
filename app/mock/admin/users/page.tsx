@@ -2,9 +2,9 @@ import * as MockUserComponents from '@/features/mock/users/components/index';
 import type { MockUser } from '@/app/types/users';
 import { getRequest } from '@/app/lib/api/client';
 
-const MockAdminUserPage = async () => {
+const MockAdminUserPage = async (): Promise<JSX.Element> => {
   try {
-    const userList: MockUser[] = await getRequest('/users');
+    const userList: MockUser[] = await getRequest<MockUser[]>('/users');
     return (
       <div>
         <MockUserComponents.UserList userList={userList} />
