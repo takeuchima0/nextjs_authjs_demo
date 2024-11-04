@@ -21,7 +21,13 @@
     // "camelcase": ["warn"]         // 変数定義時にキャメルケースで定義されていない場合は警告を出す
 
     // 基本的にはairbnbのルールに準拠しているが、除外したい場合配下のように定義
-    "no-var": ["off"] // varの宣言エラーを無視する
+    "no-var": ["off"], // varの宣言エラーを無視する
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.{js,ts,jsx,tsx}", "app/api/**"]
+      }
+    ]
   },
   "extends": ["next/core-web-vitals", "next/typescript", "airbnb-typescript"]
 }

@@ -1,6 +1,8 @@
-import React from 'react';
+'use client';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <header className="flex justify-between items-center p-4 bg-blue-600 text-white">
       <div className="text-2xl font-bold">Company Name</div>
@@ -26,18 +28,34 @@ const Header = () => {
       </nav>
 
       <div className="ml-4 flex space-x-2">
-        <a
-          href="#sign-in"
-          className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 transition"
-        >
-          Sign In
-        </a>
-        <a
-          href="#sign-up"
-          className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 transition"
-        >
-          Sign Up
-        </a>
+        {session ? (
+          <>
+            <span className="self-center">
+              こんにちは、{session.user?.name}さん！
+            </span>
+            <button
+              onClick={() => signOut()}
+              className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 transition"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={() => signIn()}
+              className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 transition"
+            >
+              SignIn
+            </button>
+            <a
+              href="#sign-up"
+              className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 transition"
+            >
+              SignUp
+            </a>
+          </>
+        )}
       </div>
     </header>
   );
