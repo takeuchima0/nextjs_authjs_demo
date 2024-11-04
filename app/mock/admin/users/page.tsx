@@ -4,7 +4,7 @@ import { getRequest } from '@/app/lib/api/client';
 
 const MockAdminUserPage = async (): Promise<JSX.Element> => {
   try {
-    const userList: MockUser[] = await getRequest<MockUser[]>('/users');
+    const userList: MockUser[] = await getRequest.simple<MockUser[]>('/users');
     return (
       <div>
         <MockUserComponents.UserList userList={userList} />
