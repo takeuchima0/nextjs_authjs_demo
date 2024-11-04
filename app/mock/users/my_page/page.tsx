@@ -1,8 +1,6 @@
 import * as MockUserComponents from '@/features/mock/users/components/index';
 import type { MockUser } from '@/app/types/users';
 
-import React from 'react';
-
 const MockUserPage = async () => {
   // ここでAPIリクエストを行い必要なデータを取得する。
   const response = await fetch('http://localhost:3000/api/v1/users/me');
