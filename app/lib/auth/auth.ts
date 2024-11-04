@@ -3,7 +3,8 @@ import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 
 const authOptions: NextAuthOptions = {
-  debug: true,
+  // NOTE: debugモードにしたい場合はtrueに設定
+  debug: false,
 
   // 1. secret key
   // NOTE: https://next-auth.js.org/configuration/options#secret
