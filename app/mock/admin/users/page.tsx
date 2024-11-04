@@ -1,24 +1,18 @@
-import { API_HOST, API_REQUEST_OPTIONS } from '@/app/constants/api';
 import * as MockUserComponents from '@/features/mock/users/components/index';
 import type { MockUser } from '@/app/types/users';
+import { getRequest } from '@/app/lib/api/client';
 
 const MockAdminUserPage = async () => {
-  const response = await fetch(`${API_HOST}/users`, {
-    method: 'GET',
-    headers: API_REQUEST_OPTIONS.headers,
-  });
-
-  if (response.status !== 200) {
-    throw new Error(`HTTP error Status: ${response.status}`);
+  try {
+    const userList: MockUser[] = await getRequest('/users');
+    return (
+      <div>
+        <MockUserComponents.UserList userList={userList} />
+      </div>
+    );
+  } catch (e) {
+    return <div>ユーザ情報の取得に失敗しました。</div>;
   }
-
-  const userList: MockUser[] = await response.json();
-
-  return (
-    <div>
-      <MockUserComponents.UserList userList={userList} />
-    </div>
-  );
 };
 
 export default MockAdminUserPage;
