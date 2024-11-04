@@ -17,7 +17,6 @@ const MockUserPage = async () => {
     <div>
       {/* 取得したデータはpropsとして1つにまとめ、feature/components側に渡す。 */}
       <MockUserComponents.UsersMe {...user} />
-      <MockUserComponents.UserList />
     </div>
   );
 };

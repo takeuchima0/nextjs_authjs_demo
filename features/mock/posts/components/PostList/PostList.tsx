@@ -9,8 +9,7 @@ const MockPostList: React.FC<MockPostListProps> = ({ posts }) => {
   return (
     <div className="p-4">
       {' '}
-      {/* コンポーネント全体の内側の余白を追加 */}
-      <h2 className="font-bold mb-4">投稿リスト</h2> {/* タイトルのスタイル */}
+      <h2 className="font-bold mb-4">投稿リスト</h2>
       <p className="mb-4">
         ./features/mock/components/
         配下で定義したMockPostListのコンポーネントです。
@@ -21,7 +20,6 @@ const MockPostList: React.FC<MockPostListProps> = ({ posts }) => {
         posts.map((post) => (
           <div key={post.id} className="bg-white shadow-md rounded-lg p-4 mb-4">
             {' '}
-            {/* 投稿のスタイル */}
             <p className="font-semibold">
               <strong>User ID:</strong> {post.userId}
             </p>
