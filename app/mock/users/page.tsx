@@ -3,19 +3,20 @@ import type { MockUser } from '@/app/types/users';
 
 import React from 'react';
 
-const MockUserPage = () => {
+const MockUserPage = async () => {
   // ここでAPIリクエストを行い必要なデータを取得する。
-  const mockUserProps: MockUser = {
-    id: 10011011,
-    name: 'Hal Ulala',
-    age: 20,
-    isLogin: true,
-  };
+  const response = await fetch('http://localhost:3000/api/v1/users/me');
+
+  if (!response.ok) {
+    return <div>ユーザ情報の取得に失敗しました。</div>;
+  }
+
+  const user: MockUser = await response.json();
 
   return (
     <div>
       {/* 取得したデータはpropsとして1つにまとめ、feature/components側に渡す。 */}
-      <MockUserComponents.UsersMe {...mockUserProps} />
+      <MockUserComponents.UsersMe {...user} />
       <MockUserComponents.UserList />
     </div>
   );
