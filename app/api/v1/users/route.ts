@@ -21,5 +21,5 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  return NextResponse.json(mockUserListResponse);
+  return NextResponse.json(mockUserListResponse, { status: 200 });
 }
