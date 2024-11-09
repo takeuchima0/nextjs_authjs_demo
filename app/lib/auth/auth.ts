@@ -1,3 +1,4 @@
+import { NEXT_AUTH_CONFIG } from '@/app/constants/auth';
 import type { NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
@@ -8,7 +9,7 @@ const authOptions: NextAuthOptions = {
 
   // 1. secret key
   // NOTE: https://next-auth.js.org/configuration/options#secret
-  secret: process.env.NEXTAUTH_SECRET || '',
+  secret: NEXT_AUTH_CONFIG.authSecret,
 
   // 2. logger option
   // NOTE: https://next-auth.js.org/configuration/options#logger
@@ -25,8 +26,8 @@ const authOptions: NextAuthOptions = {
   // NOTE: https://next-auth.js.org/providers/
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_ID || '',
-      clientSecret: process.env.GITHUB_SECRET || '',
+      clientId: NEXT_AUTH_CONFIG.github.clientID,
+      clientSecret: NEXT_AUTH_CONFIG.github.clientSecret,
       authorization: {
         params: { scope: 'user:email' },
       },
@@ -35,8 +36,8 @@ const authOptions: NextAuthOptions = {
       },
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+      clientId: NEXT_AUTH_CONFIG.google.clientID,
+      clientSecret: NEXT_AUTH_CONFIG.google.clientSecret,
     }),
   ],
 
