@@ -43,51 +43,25 @@ const authOptions: NextAuthOptions = {
   // 4. session option
   // NOTE: https://next-auth.js.org/getting-started/upgrade-v4#session-strategy
   session: {
+    // sessionをブラウザのcookieに保存 (default)
     strategy: 'jwt',
+
+    // sessionをDBに保存 (指定した場合はadapterの指定が必要)
+    // NOTE:https://next-auth.js.org/adapters
+    // strategy: 'database',
   },
 
   // 5. callback option
   // NOTE: https://next-auth.js.org/configuration/callbacks
-  // callbacks: {
-  //   async signIn({}) {
-  //     return true;
-  //   },
-  //   async redirect({ url, baseUrl }) {
-  //     return url.startsWith(baseUrl) ? url : baseUrl;
-  //   },
-  //   async jwt({ token, trigger, session, user }) {
-  //     if (trigger === 'update') token.name = session?.user?.name;
-  //     return {
-  //       ...user,
-  //       ...token,
-  //     };
-  //   },
-  //   async session({ user, session, token }) {
-  //     session.user = user;
-  //     session.accessToken = token.accessToken;
-  //     session.idToken = token.idToken;
-  //     return session;
-  //   },
-  // },
+  callbacks: {
+    async signIn({}) {
+      return true;
+    },
+
+    async redirect({ url, baseUrl }) {
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    },
+  },
 };
 
 export { authOptions };
-
-// declare module 'next-auth' {
-//   interface Session {
-//     accessToken?: string
-//     idToken?: string
-//   }
-
-//   interface User {
-//     accessToken?: string
-//     idToken?: string
-//   }
-// }
-
-// declare module 'next-auth/jwt' {
-//   interface JWT {
-//     accessToken?: string
-//     idToken?: string
-//   }
-// }
