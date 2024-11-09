@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { API_KEY } from '@/app/constants/api';
+import { API_KEY } from '@/constants/api';
 import { MockUser } from '@/app/types/users';
 
 const mockUserListResponse: MockUser[] = [

@@ -1,5 +1,5 @@
-import { API_HOST, API_REQUEST_OPTIONS } from '@/app/constants/api';
-import { HTTPError } from '@/app/lib/api/error';
+import { API_HOST, API_REQUEST_OPTIONS } from '@/constants/api';
+import { HTTPError } from '@/library/api/error';
 
 /**
  * GET リクエストを送信するクラス
